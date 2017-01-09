@@ -1,66 +1,85 @@
-# Mandatory settings
+# # # # # # # # # # # # #
+#   K i k o - p l u s   #
+# # # # # # # # # # # # #
 
-name: AwayDay
-paginate: 25
-paginate_path: "/posts/page/:num/"
-url: awayday.github.io
-blog_theme: light # Or use dark
+# Basic
+name:               창의적인 삽질
 
-# Optional settings
 
-discus_identifier: awayday
-ga_analytics: # Add your GA Tracking Id
-rss_enabled: true # Change to false if not
-about_enabled: false # Change to true if you wish to show an icon in the navigation that redirects to the about page
-social:
-  dribbble: # Add your Dribbble handle
-  facebook: # Add your Facebook handle
-  flickr: # Add your Flickr handle
-  github: awayday
-  linkedin: # Add your LinkedIn handle
-  twitter: # Add your Twitter handle
-  email: awayday1108@gmail.com
-  bitcoin: # Add your Bitcoin link or address
 
-# Important settings (change at own risk)
+author:
+  name:             AwayDay
+  facebook:         your-id
+  twitter:          your-id
+  github:           awayday
+  linkedin:         your-id
+  medium:           your-id
+  tumblr:           your-id
+  email:            awayday1108@gmail.com
 
-assets:
-  compress:
-    css: true
-    js: true
-  features:
-    automatic_img_size: false
-  sources:
-    - _assets/bower
-    - _assets/fonts
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
-    - _vendor/
-collections:
-  my_tags:
-    output: true
-    permalink: /tag/:slug/
+# Google-analytics
+google-analytics:
+  id:               ""
+
+# Disqus
+disqus:
+  id:               "awayday"
+
+# URL
+#url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
+url:                "https://awayday.github.io" # use this url when develop
+baseurl:            "" # the subpath of your site, e.g. /blog
+
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:           Asia/Seoul
+permalink:          /:year-:month-:day/:title/
+
+# Pagination
+paginate:           5
+paginate_path:      /page:num/
+
+# Markdown
+markdown:           kramdown
+kramdown:
+  input:            GFM
+
+# Navigation
+nav:
+  - name:           "About"
+    url:            "/about"
+  - name:           "Archive"
+    url:            "/archive"
+  - name:           "Tags"
+    url:            "/tags"
+  - name:           "Github"
+    url:            "https://github.com/AWEEKJ/Kiko-plus"
+
+
+
+# Sass
+sass:
+  sass_dir:         _sass
+  style:            :compressed
+
+# Scopes
 defaults:
   -
     scope:
-      path: ""
-      type: my_tags
+      path:         ""
+      type:         "pages"
     values:
-      layout: articles_by_tag
-exclude:
-  - .bowerrc
-  - .travis.yml
-  - bin/*
-  - bower.json
-  - circle.yml
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - vendor/
+      layout:       "page"
+  -
+    scope:
+      path:         ""
+      type:         "posts"
+    values:
+      layout:       "post"
+
+# jekyll-seo-tag, see: http://www.rubydoc.info/gems/jekyll-seo-tag/1.2.0
 gems:
-  - jekyll-assets
+  - jekyll-seo-tag
   - jekyll-paginate
-  - jekyll-sitemap
-  - jemoji
-permalink: posts/:slug
+
+exclude:            [vendor]
