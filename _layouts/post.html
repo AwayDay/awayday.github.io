@@ -2,7 +2,11 @@
 layout: default
 ---
 
-{{ page.title }}
+<H2>{{ page.title }}</H2>
+{% if page.date %}
+{{ page.date }}
+{% endif %}
+<br>
 {{ content }}
 
 {% if page.comments %}
