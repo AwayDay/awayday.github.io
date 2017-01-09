@@ -21,15 +21,15 @@ categories: 만들기
 # Jekyll 프로젝트 생성
 1. 루비를 설치한다.
 2. bundler 설치
-```
+{% highlight ruby %}
 gem install bundler
-```
+{% endhighlight %}
 3. Jekyll 설치
-```
+{% highlight ruby %}
 gem install jekyll
-```
+{% endhighlight %}
 4. Jekyll 프로젝트 생성  
 만약 당신이 현재 디렉터리에서 프로젝트를 생성하고 싶어 한다면
-```
+{% highlight ruby %}
 jekyll new .
-```
+{% endhighlight %}
