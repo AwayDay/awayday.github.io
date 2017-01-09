@@ -24,14 +24,11 @@ categories: 만들기
 ```
 gem install bundler
 ```
-
 3. Jekyll 설치
 ```
 gem install jekyll
 ```
-
-4. Jekyll 프로젝트 생성
-
+4. Jekyll 프로젝트 생성  
 만약 당신이 현재 디렉터리에서 프로젝트를 생성하고 싶어 한다면
 ```
 jekyll new .
