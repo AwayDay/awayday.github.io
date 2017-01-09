@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Jekyll과 함께 블로그 만들기"
+date:   2017-01-09 16:03:00 +0900
+categories: 만들기
+---
+
+# 간략한 순서
+1. Github 레포지터리 생성
+2. 클론
+3. Jekyll 프로젝트 생성
+4. 커밋 & 푸시
