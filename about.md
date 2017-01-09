@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+한없이 무지한 개발자 지망.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+NHN 엔터테인먼트 근무 중(17'~)
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[awayday1108@gmail.com](mailto:awayday1108@gmail.com)

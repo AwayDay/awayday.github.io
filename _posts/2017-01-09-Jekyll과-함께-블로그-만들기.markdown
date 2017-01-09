@@ -6,27 +6,27 @@ categories: 만들기
 comments: true
 ---
 
-# 간략한 순서
+## 간략한 순서
 1. Github 레포지터리 생성
 2. 클론
 3. Jekyll 프로젝트 생성
 4. 커밋 & 푸시
 
-# Github 레포지터리 생성
+## Github 레포지터리 생성
 1. Github에 __username__.github.io 라는 이름으로 레포지터리를 생성한다
 2. 끝.
 
-# 클론
+## 클론
 * 뭘 더 바래
 
-# Jekyll 프로젝트 생성
+## Jekyll 프로젝트 생성
 1. 루비를 설치한다.
 2. bundler 설치 ```gem install bundler```
 3. Jekyll 설치 ```gem install jekyll```
 4. Jekyll 프로젝트 생성  
 만약 당신이 현재 디렉터리에서 프로젝트를 생성하고 싶어 한다면 ```jekyll new .```
 
-# 커밋 & 푸시
+## 커밋 & 푸시
 1. ```git add .```
 2. ```git commit -m "으아아아아아ㅏㅏㅏㅏ"```
 3. ```git push origin master```
