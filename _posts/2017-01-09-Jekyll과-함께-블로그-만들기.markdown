@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Jekyll과 함께 블로그 만들기"
-description: "Jekyll를 사용하여 GitHub Page에 블로그를 올려 보았다. 이하는 그 험난한 일대기."
+description: "Jekyll를 사용하여 GitHub Page에 블로그를 올려 보았다."
 categories: 만들기
-tags: [Ruby, GitHub, Web]
+tags: [Ruby, GitHub, Web, Jekyll]
 ---
 
 ## 간략한 순서

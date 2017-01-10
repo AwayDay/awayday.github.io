@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "메이븐 기반 웹 애플리케이션 배포"
-description: "Maven을 사용하면 터미널에서도 빌드가 쫚! 배포가 뙇!"
+description: "Maven과 Tomcat을 사용하여 웹 애플리케이션을 배포해봅시다."
 categories: 뿌리기
 tags: [Java, Maven, Tomcat, Web]
 ---
