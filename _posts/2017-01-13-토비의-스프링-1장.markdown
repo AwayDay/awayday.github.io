@@ -15,6 +15,7 @@ tags: [study, Spring, Java]
 
 ## 간단하고 미친 놈 같은 예제 코드
 * 우리는 간단하게 DAO를 만들어볼 것이다
+
 ```Java
 public class UserDao{
     public void add(User user) throws ClassNotFoundException, SQLException {
@@ -31,4 +32,5 @@ public class UserDao{
     }
 }
 ```
+
 * 한 줄 요약 : 망했어요
