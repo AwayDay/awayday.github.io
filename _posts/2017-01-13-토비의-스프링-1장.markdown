@@ -1,0 +1,34 @@
+---
+layout: post
+title: "토비의 스프링 1장"
+description: "1장을 읽고 내용을 간단히 정리"
+tags: [study, Spring, Java]
+---
+
+# 오브젝트와 의존 관계
+스프링은 자바를 기반으로 한 프레임워크, 그럼 스프링이 무엇을 하고, 뭘 중요하게 여기는 프레임워크인지 확인해 보아야 한다.
+* 우리의 핵심목표는 __오브젝트__ 이다 하는 것을 정신을 차리고 나아가면(후략)
+    * 오브젝트가 __생성__되어 다른 오브젝트와 __관계__를 맺고, __사용__ 후 __소멸__되는 과정에 주목할 필요가 있다
+* 우리는 DI와 IoC랑 AOP와 같은 태크닉을 넘어 결국 다시 OOP로 돌아오게 될 것이다.
+    * OOP의 기초와 원칙, 다양한 디자인 패턴, 리팩토링, 검증에 이르는 광범위한 지식이 필요함.
+* 스프링은 강요하지 않지만 기준을 준다
+
+## 간단하고 미친 놈 같은 예제 코드
+* 우리는 간단하게 DAO를 만들어볼 것이다
+```Java
+public class UserDao{
+    public void add(User user) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "spring", "book");
+        PreparedStatement ps = c.perpareStatement("INSERT INTO USERS(~) VALUES(~)");
+        // (후략)
+    }
+    public void get(User user) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "spring", "book");
+        PreparedStatement ps = c.perpareStatement("SELECT~");
+        // (후략)
+    }
+}
+```
+* 한 줄 요약 : 망했어요
