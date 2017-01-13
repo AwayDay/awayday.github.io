@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "토비의 스프링 1장"
-description: "1장을 읽고 내용을 간단히 정리"
+description: "1장을 읽고 내용을 간단히 정리하는 중"
 tags: [study, Spring, Java]
 ---
 
