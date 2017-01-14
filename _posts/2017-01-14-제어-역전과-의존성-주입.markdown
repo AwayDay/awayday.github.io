@@ -39,7 +39,7 @@ tags: [study, Spring, Java]
         * 메서드가 빈이 아니라 빈을 만드는 메서드임에 유의.
         * 메서드를 통해 생성된 오브젝트(반환형)는 빈이 맞다.
 * 간단하게 쓰는 법 : 위에서 개조한 팩토리 오브젝트에 붙은 설정 정보를 쓴다  
-```java
+```
 // 애노테이션으로 설정한 컨텍스트 정보를 읽어온다(아마)
 ApplicationContext ac = new AnnotationConfigApplicationContext(AFactory.class);
 // 생성 메서드를 찾아서 빈을 만들고 타입 변환해서(Object -> MyBean) 반환한다.
@@ -129,7 +129,7 @@ MyBean mb = c.getBean("myBean", MyBean.class);
     * 관계 설정 책임을 분리함
     * 이것도 관심사의 분리인가?
     * 결국 간단하게 말하면 의존성 넣어주는 팩토리임.  
-```java
+```
 // 객체의 의존성 주입 기본
 public class MyBean{
     private Dependency dependency;
@@ -166,6 +166,7 @@ public class MyBean{
 
 
 # 메모
+
 ## 펙토리의 의의
 * 팩토리는 객체(A)와 의존 대상(B) 사이의 관계를 성립해 객체를 만들어내는 것에 의미가 있는 것 같다.
     * 그래서 A를 만들어내는 팩토리는 B를 만들어내는 역할도 겸할 수 있어야 한다고 생각.
