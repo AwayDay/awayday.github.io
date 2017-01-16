@@ -41,6 +41,13 @@ tags: [Spring, MyBatis, Java]
     <artifactId>mysql-connector-java</artifactId>
     <version>5.1.31</version>
 </dependency>
+<!-- JUnit 테스트용 -->
+<!-- @RunWith(SpringJUnit4ClassRunner.class) -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>3.1.0.RELEASE</version>
+</dependency>
 ```
 
 # 마이바티스 설정
@@ -99,3 +106,20 @@ public void setSqlSession(SqlSession sqlSession) {
 * 이제 MyDao 상에서 sqlSession 을 휘둘러 SQL 쿼리를 던질 준비는 어느 정도 끝났다.
 
 ## SQL 쿼리 매핑
+* 작성 중
+
+## JUnit 테스트 환경 작성
+
+```java
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations="file:~~~/mybatis-context.xml")
+public class MyTestDAOTest {
+}
+```
+
+
+# 참고사항
+
+## 경로에 대하여
+* __classpath:__ 는 /resources 폴더 하위를 가리킨다.
+* __file:__ 은 프로젝트 폴더 최상위부터 시작한다.
