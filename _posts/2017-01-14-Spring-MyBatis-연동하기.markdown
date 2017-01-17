@@ -111,7 +111,19 @@ public void setSqlSession(SqlSession sqlSession) {
 * 이제 MyDao 상에서 sqlSession 을 휘둘러 SQL 쿼리를 던질 준비는 어느 정도 끝났다.
 
 ## SQL 쿼리 매핑
-* 작성 중
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- useGeneratedKeys와 keyProperty는 AI 설정 있는 컬럼이 있을 경우에 한해서. -->
+<mapper namespace="{이름}">
+	<insert id="{메서드 이름}" parameterType="{파라미터 패키지와 이름}" useGeneratedKeys="true" keyProperty="id">
+	</insert>
+</mapper>
+```
 
 # JUnit 테스트 환경 작성
 
