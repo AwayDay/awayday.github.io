@@ -7,8 +7,8 @@
 body {
   color: $base-color;
   background-color: $background-color;
-  -webkit-text-size-adjust: 50%;
-      -ms-text-size-adjust: 50%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
 }
 
 /*--------------
@@ -39,7 +39,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2.1rem;
+  //font-size: 2.1rem;
+  font-size: 1rem;
 }
 
 h2 {
