@@ -9,7 +9,6 @@ tags: [Spring, MyBatis, Java]
 * 스프링 프로젝트 생성
 * 메이븐 디펜던시 추가
 * 마이바티스 설정
-* 데이터베이스 연동
 * 테스트 작성, 실행
 
 # 스프링 프로젝트 생성
@@ -88,7 +87,7 @@ tags: [Spring, MyBatis, Java]
 * SqlSession(사실은 SqlSessionTemplate)은 DAO에 바로 쏴줄 수 있다.
 * 일단 DAO에 주입할 수 있도록 제반작업을 하자
 
-```Java
+```java
 private SqlSession sqlSession;
 
 public void setSqlSession(SqlSession sqlSession) {
@@ -111,7 +110,7 @@ public void setSqlSession(SqlSession sqlSession) {
 ## SQL 쿼리 매핑
 * 작성 중
 
-## JUnit 테스트 환경 작성
+# JUnit 테스트 환경 작성
 
 ```java
 @RunWith(SpringJUnit4ClassRunner.class)
