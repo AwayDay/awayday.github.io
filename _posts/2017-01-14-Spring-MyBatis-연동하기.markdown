@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Spring - MyBatis 연동하기"
-description: "저번에 디비 접근은 잘 되는데, 테스트 하려니까 웬 희안한 에러들이 떠서 정석대로 재시도."
+description: "지난 프로젝트에서, 디비 접근은 잘 되는데, 테스트 하려니까 웬 희안한 에러들이 떠서 정석대로 재시도."
 tags: [Spring, MyBatis, Java]
 ---
 
@@ -24,12 +24,12 @@ tags: [Spring, MyBatis, Java]
 <dependency>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis-spring</artifactId>
-    <version>1.2.2</version>
+    <version>RELEASE</version>
 </dependency>
 <dependency>
     <groupId>org.mybatis</groupId>
     <artifactId>mybatis</artifactId>
-    <version>3.4.2</version>
+    <version>RELEASE</version>
 </dependency>
 <dependency>
     <groupId>org.springframework</groupId>
@@ -72,6 +72,7 @@ tags: [Spring, MyBatis, Java]
 <!-- 세션 팩토리는 위의 데이터소스를 받아서 생성한다. 매퍼 위치는 알아서 설정하자. -->
 <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
+    <!-- 매퍼로케이션의 값은 매퍼.xml이 있는 경로와 파일 이름. 보통 *.xml이더라. -->
     <property name="mapperLocations" value="classpath*:{어딘가}" />
 </bean>
 ```
@@ -98,6 +99,8 @@ public void setSqlSession(SqlSession sqlSession) {
 * 그리고 컨텍스트로 넘어와서
 
 ```xml
+<!-- MyDao를 Bean으로 등록 -->
+<!-- sqlSession을 디펜던시로 등록하였다. -->
 <bean id="myDao" class="../../../MyDao">
     <property name="sqlSession" ref="sqlSession" />
 </bean>
@@ -112,14 +115,36 @@ public void setSqlSession(SqlSession sqlSession) {
 
 ```java
 @RunWith(SpringJUnit4ClassRunner.class)
+// 컨텍스트 파일을 잡는 중.
 @ContextConfiguration(locations="file:~~~/mybatis-context.xml")
 public class MyTestDAOTest {
+    // @Autowired이 선언된 객체는 해당 선언에서 가능한 Bean을 스프링이 알아서 생성해준다.
+    @Autowired
+	private MyDAO md;
+    // ...
 }
 ```
-
 
 # 참고사항
 
 ## 경로에 대하여
 * __classpath:__ 는 /resources 폴더 하위를 가리킨다.
 * __file:__ 은 프로젝트 폴더 최상위부터 시작한다.
+
+## 트러블슈팅
+* org.mybatis.spring.transaction.SpringManagedTransaction.getTimeout()Ljava/lang/Integer;
+    * 보통 마이바티스 버전 문제.
+    * 아래와 같이 수정하면 문제가 해결된다.
+
+```xml
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis-spring</artifactId>
+    <version>RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.mybatis</groupId>
+    <artifactId>mybatis</artifactId>
+    <version>RELEASE</version>
+</dependency>
+```
