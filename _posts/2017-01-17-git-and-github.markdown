@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git와 Github"
+title: "[작성 중]Git와 Github"
 description: "형상관리의 묘"
 tags: [study, Git]
 ---
