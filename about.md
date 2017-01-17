@@ -22,3 +22,4 @@ permalink: /about/
 
 ### 단기목표
 * Java 1.8 공부
+* Spring 공부
