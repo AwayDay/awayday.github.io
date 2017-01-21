@@ -2,7 +2,7 @@
 layout: post
 title: "개발 프로세스"
 description: "간단한 협업 개발 프로세스."
-tags: [Git, Project]
+tags: [git, project]
 ---
 
 # 대강의 프로세스

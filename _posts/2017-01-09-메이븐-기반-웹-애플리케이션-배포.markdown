@@ -3,7 +3,7 @@ layout: post
 title: "메이븐 기반 웹 애플리케이션 배포"
 description: "Maven과 Tomcat을 사용하여 웹 애플리케이션을 배포해봅시다."
 categories: 뿌리기
-tags: [Java, Maven, Tomcat, Web]
+tags: [java, maven, tomcat, web]
 ---
 
 ## 무엇을 해야 하는가

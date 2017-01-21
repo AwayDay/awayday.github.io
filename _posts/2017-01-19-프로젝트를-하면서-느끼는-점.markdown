@@ -2,7 +2,7 @@
 layout: post
 title: "프로젝트를 하면서 느끼는 점"
 description: "우리는 뻘짓을 공들여 하곤 한다."
-tags: [Project]
+tags: [project]
 ---
 
 # 공통 기능부터 개발해라

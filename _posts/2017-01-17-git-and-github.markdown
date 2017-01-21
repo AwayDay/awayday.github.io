@@ -2,7 +2,7 @@
 layout: post
 title: "[작성 중]Git와 Github"
 description: "형상관리의 묘"
-tags: [study, Git]
+tags: [study, git]
 ---
 
 # 들어가기 전에

@@ -2,7 +2,7 @@
 layout: post
 title: "오브젝트 디자인 기법"
 description: "토비의 스프링 1장을 느긋하게 읽는 중"
-tags: [study, Spring, Java]
+tags: [study, spring, java]
 ---
 
 # 들어가기 전에

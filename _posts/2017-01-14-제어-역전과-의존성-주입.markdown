@@ -2,7 +2,7 @@
 layout: post
 title: "제어 역전과 의존성 주입"
 description: "스프링은 무슨 일을 하는가?"
-tags: [study, Spring, Java]
+tags: [study, spring, java]
 ---
 
 # 들어가기 전에
