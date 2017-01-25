@@ -97,6 +97,42 @@ public void restForREST(requestObj ro) {
 }
 ```
 
+## Multipart : 파일 전송
+* 손 봐야 할 것이 조금 많다.
+
+### 의존성 등록
+
+```xml
+<!-- MultipartHttpServletRequset -->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.0.1</version>
+</dependency>
+    
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.2.2</version>
+</dependency>
+```
+
+### Bean 등록
+
+```xml
+<!-- multipart -->
+<!-- maxUploadSize는 50MB가 상한. -->
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="100000000" />
+</bean>
+```
+
+### MultipartHttpServletRequest 사용한다
+* 컨트롤러 인자에 `MultipartHttpServletRequest request` 를 추가해보자.
+
+### 파일 전송을 마음껏 누리십시오 여러분
+* `request.getFile` 와 유사품들이 `MultipartFile` 리턴으로 당신을 반긴다!
+
 # JSP 관련
 
 ## 한글이 나오게 합시다

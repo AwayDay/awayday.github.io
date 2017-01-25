@@ -1,0 +1,23 @@
+---
+layout: post
+title: "어노테이션 4형제"
+description: "늘 보고 쓰는데 이게 뭐지 싶은 것들"
+tags: [spring, java]
+---
+
+# 어노테이션 3형제
+* `@Autowired` , `@Service` , `@Repository`
+* `@Controller` 는 모를래야 모를 수가 없을 것 같아서 뺐음.
+* Autowired 빼면 전부 객체를 Spring이 관리하는 Bean으로 자동 등록시켜주는 친구임.
+
+## Autowired
+
+## Service
+* 비지니스 로직이 들어가는 서비스를 Bean으로 자동 등록시키는 어노테이션.
+
+## Repository
+
+# 곁다리
+* `@Resource` 가 계속 눈헤 밟힘
+
+## Resource
