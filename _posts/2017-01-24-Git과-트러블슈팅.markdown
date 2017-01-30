@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Git과 트러블슈팅"
-description: "사람에게는 눈이 있다"
+description: "컴퓨터는 되돌리기가 가능하다."
 tags: [git, project]
 ---
 

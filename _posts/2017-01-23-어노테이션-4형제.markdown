@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "어노테이션 4형제"
+title: "[작성 중]어노테이션 4형제"
 description: "늘 보고 쓰는데 이게 뭐지 싶은 것들"
 tags: [spring, java]
 ---

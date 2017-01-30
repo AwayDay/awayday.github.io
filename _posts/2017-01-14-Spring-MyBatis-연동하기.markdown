@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[작성 중]Spring - MyBatis 연동하기"
+title: "Spring - MyBatis 연동하기"
 description: "지난 프로젝트에서, 디비 접근은 잘 되는데, 테스트 하려니까 웬 희안한 에러들이 떠서 정석대로 재시도."
 tags: [spring, mybatis, java]
 ---

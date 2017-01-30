@@ -1,0 +1,120 @@
+---
+layout: post
+title: "터미널과 함께 하는 po배포wer"
+description: "아파치와 톰캣이 돌아가는 원격 서버에 ssh로 접속, 스프링 프로젝트를 배포해보자."
+tags: [server, apache, tomcat, web]
+---
+
+# 들어가기 전에
+* 
+
+# 프로젝트 올리기
+
+## 소스를 받아보자.
+* 소스를 받아야 빌드를 하고 패키지를 만들어서 톰캣에 올릴 것 아닌가.
+* 집사님(Jenkins) 같은 좋은 CI 프로그램이 돌아가고 있다면 모르는데, 생짜 서버에 젠킨스 올리기는 너무 힘들(었)다(경험에서 우러나옴)
+    * 그건 나중에 정리하기로 하고, 일단 깃허브에서 바로 소스를 받아보기로 함.
+
+### github에서 바로 받아보기
+* 적절한 폴더 (예시 : `~/deploy/{프로젝트 이름}` )에서 `git clone ~~~` 명령어를 쳐보자.
+    * 다음부터는 `git pull` 하면 되겠지 뭐...
+* 어차피 나만 보는 블로그라지만 설명이 진짜 불친절하다.
+
+## 소스를 빌드해보자.
+* 프로젝트 폴더에 들어갔을 때, maven 기반 프로젝트라면 `pom.xml` 이 우리를 반갑게 맞아줄 것이다.
+
+### mvn compile
+* 소스를 컴파일 해서 결과물을 `{프로젝트명}-{버전 이름}` 폴더 아래에 생성한다.
+
+### mvn test
+* JUnit 유닛 테스트를 돌려본다
+
+### mvn package
+* 테스트 + 컴파일 결과물 압축
+    * 테스트를 건너뛸 수도 있다 : `-Dmaven.test.skip=true`
+    * 혹은 `pom.xml` 자체를 수정하는 방법도 있다.
+
+```xml
+<properties>
+    <maven.test.skip>true</maven.test.skip>
+</properties>
+```
+
+## package를 했으면 .war 파일이 나온다.
+* `/target` 하위에 `{프로젝트 이름}-{버전 이름}.war` 이름으로 생성된다.
+* 적절한 위치로 이동시키자.
+    * 이번 프로젝트에선 `~/deploy/{프로젝트 이름}`
+    * `mv ~~ ~/deploy/~`
+    * 더 상세히 쓰기는 귀찮다.
+* 압축을 풀자
+    * `unzip -o ~~.war`
+        * `-o` 는 덮어쓴다는 의미
+
+## 톰캣 설정
+* `{tomcat-path}/conf/server.xml` 만 수정하면 어떻게든 된다. 다음을 확인해보자
+    * HTTP 포트 번호 : 아파치에서 프록시 설정할 때 필요하다.
+    * path : "" 로 설정할 경우, `http://(주소).com:{port}` 로 바로 프로젝트에 접근 가능하다.
+        * 만약 `"/project"` 등으로 설정했을 경우엔 `http://(주소).com:{port}/project/` 으로 접근해야 함.
+    * docBase : 프로젝트가 위치하는 절대경로를 주어야 한다. `pwd` 로 확인해보자.
+
+
+```xml
+<Service name="Catalina">
+    <Connector port="9001" protocol="HTTP/1.1"
+                connectionTimeout="20000"
+                URIEncoding="UTF-8"
+                redirectPort="8443" />
+
+    <Connector port="8001" protocol="AJP/1.3"
+                enableLookups="false"
+                acceptCount="100" debug="0"
+                connectionTimeout="10000"
+                useBodyEncodingForURI="true"
+                maxPostSize="3145728"
+                disableUploadTimeout="true"
+                redirectPort="8443" />
+
+    <Engine name="Catalina" defaultHost="localhost">
+        <Host name="localhost"  appBase="webapps"
+            deployOnStartup="false"
+            unpackWARs="false" autoDeploy="false"
+            xmlValidation="false" xmlNamespaceAware="false">
+
+        <Context path="" docBase="{프로젝트의 절대경로}" reloadable="true"/>
+        </Host>
+    </Engine>
+</Service>
+```
+
+## 아파치 설정
+* 지금까지 설정이 제대로 되었다 하면, (주소):9001로 접속을 해야 접근이 가능하다.
+* 이걸 :80으로 접근 가능하게 설정해주자.
+* `{apache-path/conf/httpd.conf}` 를 수정해보자.
+* 결국 핵심은 사용자가 80으로 접근하는 것을 톰캣이 관리하는 9001로 어떻게 던져줄 것인가, 하는 것.
+    * 아래를 참조.
+
+```xml
+<VirtualHost *:80>
+    ServerName {주소}
+    ServerAlias {주소}
+
+    ProxyPass / http://127.0.0.1:9001/
+    ProxyPassReverse / http://127.0.0.1:9001/
+
+    <!-- 후략 -->
+</VirtualHost>
+```
+
+## 이쯤 되면 다 되었겠지...
+* 아파치를 끄고, 톰캣도 끄고.
+* 아파키를 켜고, 톰캣도 켜보자, 설정들을 다시 로드한다.
+* `http://(주소)` 에 접근하였을 때, 열심히 만들었던 프로젝트 메인 화면이 뜨면, 야 신난다.
+
+# 트러블슈팅
+* 사람 일이 그렇게 마음대로 되면 얼마나 좋아.
+* 뭔가 문제가 일어났다면 눈 아파도 로그를 읽어보자.
+
+## 왜인지 프로젝트 빌드가 안 된다.
+* 익숙한 톰캣의 기본 404 페이지도 뜨지 않고, 주소를 입력해보면 밑도 끝도 없이 페이지가 없다는 브라우져 에러 화면이 나온다.
+* __내가 겪은 상황__ : 톰캣 시동 중(프로젝트 빌드 중) 어디선가 에러가 나서 붕붕펑 한 상황.
+* `{tomcat-path}/logs/catalina.out` 파일을 보면 우리가 이클립스 등에 연동해서 개발할 때 보이던 정겨운 톰캣 로그들이 보인다.

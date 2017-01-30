@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[작성 중]HTML과 CSS"
+title: "[난장판]HTML과 CSS"
 description: "사람에게는 눈이 있다"
 tags: [web, html, css]
 ---
