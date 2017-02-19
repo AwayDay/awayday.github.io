@@ -71,7 +71,7 @@ List <String> messageList;
 
 ## 일단 굴러만 가면...
 
-아래 코드는 내가 얼마 전에 딴 JUnit 테스트 코드에 포스트 작성일 얼마 전까지 등장했던 코드이다.
+아래 코드는 내가 얼마 전에 작성한 JUnit 테스트 코드에 등장했던 코드이다.
 
 ```java
 UserDto user1 = new UserDto();
