@@ -59,7 +59,7 @@ List <String> userNameList;
 List <String> messageList;
 ```
 
-# 혼돈! 파괴! 망~~가~~각!
+# 혼돈! 파괴! 망각!
 
 ## 줄임말의 위험성
 
