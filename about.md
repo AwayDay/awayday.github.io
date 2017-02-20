@@ -4,7 +4,7 @@ permalink: /about/
 ---
 
 ## AwayDay
-* 17세 86개월
+* 17세 87개월
 * 건국대학교 컴퓨터공학과 학사 (11'03~17'02)
 * NHN Ent. TOAST Rookie 4기 (16'12~)
 * NHN Ent. 기술본부 기술전략팀 루키열매TF (17'01~)

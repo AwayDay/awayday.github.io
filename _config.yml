@@ -3,19 +3,20 @@
 # # # # # # # # # # # # #
 
 # Basic
-name:               AwayDay
-
-
+name:               "AwayDay"
 
 author:
-  name:             AwayDay
   facebook:         #your-id
   twitter:          #your-id
-  github:           awayday
+  github:           AwayDay
   linkedin:         #your-id
   medium:           #your-id
   tumblr:           #your-id
-  email:            awayday1108@gmail.com
+  email:            kurosawadia@gmail.com
+
+copyright:
+  year:             2017
+  name:             AwayDay
 
 # Google-analytics
 google-analytics:
@@ -26,8 +27,8 @@ disqus:
   id:               "awayday"
 
 # URL
-#url:                "https://AWEEKJ.github.io" # the base hostname & protocol for your site
-url:                "https://awayday.github.io" # use this url when develop
+url:                "https://awayday.github.io"
+# url:                "http://localhost:4000" # use this url when you develop
 baseurl:            "" # the subpath of your site, e.g. /blog
 
 
@@ -55,8 +56,6 @@ nav:
   - name:           "Github"
     url:            "https://github.com/AWEEKJ/Kiko-plus"
 
-
-
 # Sass
 sass:
   sass_dir:         _sass
@@ -81,5 +80,6 @@ defaults:
 gems:
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-admin
 
 exclude:            [vendor]
