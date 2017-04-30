@@ -7,7 +7,7 @@ name:               "AwayDay"
 
 author:
 #  facebook:         #your-id
-  twitter:          `append_node`
+  twitter:          append_node
   github:           AwayDay
 #  linkedin:         #your-id
 #  medium:           #your-id
