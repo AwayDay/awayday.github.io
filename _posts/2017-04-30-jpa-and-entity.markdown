@@ -25,24 +25,24 @@ ORM은 __Object-Relational Mapping__ 의 두문자어이며, 이를 번역하여
 
 * __객체__ = 데이터 + 연산
 * 객체지향
-  * 캡슐화
-* 추상화
-* 다형성
-* 상속
+  * 캡슐화
+  * 추상화
+  * 다형성
+  * 상속
 
 관계형 데이터베이스에서, 데이터는 연산을 가지지 않는다. 상속이나 캡슐화 등이 될 리는 더더욱 만무하다. 대신, 데이터는 외래 키를 사용한 양방향 __관계__ 를 가질 수 있는데, 이러한 양방향 관계는 객체에서 참조를 통해 유사하게 구현할 수 있지만, 완전히 일치하게 구현하기 위해서는 많은 개발 비용이 든다.
 
 ```java
 public class Reader {
-    private long id;
-    // ...
-    private List<Book> bookList;
+  private long id;
+  // ...
+  private List<Book> bookList;
 }
 
 public class Book {
-    private long id;
-    // ...
-    private Reader reader;
+  private long id;
+  // ...
+  private Reader reader;
 }
 ```
 
@@ -81,8 +81,8 @@ DBMS마다 SQL 문법이 일부 다른 경우가 있는데(오라클과 MySql의
 ```java
 @Entity
 @Table(name = "reader")
-public class Reader{
-    // ...
+public class Reader {
+  // ...
 }
 ```
 
