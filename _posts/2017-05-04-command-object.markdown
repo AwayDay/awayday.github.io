@@ -33,7 +33,7 @@ public @ResponseBody String upload(Model model,
         @RequestParam(value = "birthday", required = false) String birthday,
         @RequestParam(value = "homepage", required = false) String homepage,
         @RequestParam(value = "profileImg", required = false) MultipartFile profileImg,
-        @RequestParam(value = "protected", required = false, defaultValue = "false") boolean protected,
+        @RequestParam(value = "protected", required = false, defaultValue = "false") boolean protect,
         HttpServletRequest request) throws BinaryException, NotEnoughParameterException {
         
     // ...이메일 포맷 확인...
@@ -43,7 +43,7 @@ public @ResponseBody String upload(Model model,
     // ...프로필 이미지 사이즈 확인...
     // 등등등
 
-    long userId = userService.signup(email, name, password, profile, birthday, homepage, profileImg, protected);
+    long userId = userService.signup(email, name, password, profile, birthday, homepage, profileImg, protect);
     // 뭐 이렇게 길어
 
     return result;
@@ -82,7 +82,7 @@ public class UserSignupForm {
     private String birthday;
     private String homepage;
     private MultipartFile profileImg;
-    private boolean protected;
+    private boolean protect;
 
     // getter & setter
 }
@@ -118,7 +118,7 @@ public class UserSignupForm {
     private String birthday;
     private String homepage;
     private MultipartFile profileImg;
-    private boolean protected;
+    private boolean protect;
 
     public UserSignupForm() {
         protected = false;
@@ -141,12 +141,12 @@ public class UserSignupForm {
     private String birthday;
     private String homepage;
     private MultipartFile profileImg;
-    private boolean protected;
+    private boolean protect;
 
     private Date birthdayDate;
 
     public UserSignupForm() {
-        protected = false;
+        protect = false;
     }
 
     public void setBirthday(String birthday) {
