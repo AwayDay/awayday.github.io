@@ -121,7 +121,7 @@ public class UserSignupForm {
     private boolean protect;
 
     public UserSignupForm() {
-        protected = false;
+        protect = false;
     }
 
     // getter & setter
