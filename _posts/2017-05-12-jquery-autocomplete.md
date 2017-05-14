@@ -5,6 +5,9 @@ description: "검색을 즐겁게"
 tags: [JavaScript, JQueru]
 ---
 
+# 들어가기 전에
+* 진실로 간단요약
+
 # JQueru Autocomplete
 * Jquery에서 제공하는 __자동 완성__ 기능
     * 기능?
@@ -12,8 +15,8 @@ tags: [JavaScript, JQueru]
         * 사실상 검색에서만 쓰는 것이 아닌....?
 * HTML `<input>` 엘리먼트에 붙이는 방식으로 추가
 
-```javascript
-<input type="text" id="input_auto">
+```html
+<input type="text" id="input_auto"></input>
 <script>
     $('#input_auto').autocomplete();
 </script>
@@ -53,6 +56,8 @@ var data = {
 }
 ```
 
+    * `label` 은 검색 키워드, `value` 은 실제 입력되는 값
+
 * String
     * String은 json 형식의 데이터를 응답하는 URL이어야 함.
 
@@ -74,3 +79,31 @@ var data = {
     } 
 };
 ```
+
+    * ajax 예시
+
+```javascript
+var data = {
+    source: function(request, response) {
+        $.ajax({
+            type: "get",
+            url: "test.com",
+            data: { type: "json", value: request.term },
+            dataType: "json",
+            success: function(data) {
+                var filteredArray = data.array.filter(..);
+                response(
+                    $.map(filteredArray, function(item) {
+                        return {
+                            label: item.key,
+                            value: item.value
+                        };
+                    })
+                );
+            }
+        });
+    } 
+};
+```
+
+* 대충 이런 느낌(기억에 의존해서 쓰는 중이라)
