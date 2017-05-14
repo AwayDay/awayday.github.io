@@ -2,7 +2,7 @@
 layout: post
 title: "Autocomplete"
 description: "검색을 즐겁게"
-tags: [JavaScript, JQueru]
+tags: [javascript, jquery]
 ---
 
 # 들어가기 전에
