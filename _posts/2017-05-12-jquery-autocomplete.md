@@ -91,7 +91,9 @@ var data = {
             data: { type: "json", value: request.term },
             dataType: "json",
             success: function(data) {
+                // 결과 data를 가공한다
                 var filteredArray = data.array.filter(..);
+                // 가공한 데이터를 map 돌려서 라벨-밸류 쌍으로 뽑아낸다
                 response(
                     $.map(filteredArray, function(item) {
                         return {
@@ -106,4 +108,4 @@ var data = {
 };
 ```
 
-* 대충 이런 느낌(기억에 의존해서 쓰는 중)
+* 대충 이런 느낌이다.

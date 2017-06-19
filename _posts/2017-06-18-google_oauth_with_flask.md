@@ -2,7 +2,7 @@
 layout: post
 title: "Flask 프로젝트에 Google OAuth 붙이기"
 description: "구글은 기      쁘다. 역시 구글 연동        해야 한다"
-tags: [heroku, python, flask]
+tags: [python, flask, oauth, google]
 ---
 
 # 들어가기 전에

@@ -21,7 +21,7 @@ tags: [java, spring, oop]
 
 ### HTTP 요청 파라미터
 * 컨트롤러가 길어지는 주요 원인(적어도 내 경험상으로는)
-    * 파라미터를 하나하나 적어줄 (내)책임과(귀찮다) 이를 검증하고 관련 데이터를 설정하는 (지금은 컨트롤러가 가진)책임을(보기 안 좋다) 어딘가에 몰아넣고 싶다.
+    * 파라미터를 하나하나 적어줄 (내)책임과(=귀찮다) 이를 검증하고 관련 데이터를 설정하는 (지금은 컨트롤러가 가진)책임을(=보기 안 좋다) 어딘가에 몰아넣고 싶다.
 
 ```java
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -53,6 +53,7 @@ public @ResponseBody String upload(Model model,
 ## Command Object
 * 요청 파라미터를 다 묶어서 객체로 받을 수 있으면 좋지 않을까?
     * OOP : 데이터를 가진 쪽에서 관련된 로직을 처리하게 하라
+* HTTP 요청 인자를 모아 POJO로 만든 것.
 
 ```java
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -70,8 +71,8 @@ public @ResponseBody String upload(Model model,
     * 이 좋은 것을 이제야 알았다니.
 
 ### 선언
-* POJO : 너무 간단해서 할 말이 없다.
-    * 인자에 맞춰 멤버 변수를 생성하고, getter, setter를 생성하자
+* POJO
+    * 인자에 맞춰 멤버 변수를 생성하고, getter, setter를 생성
 
 ```java
 public class UserSignupForm {
@@ -92,14 +93,27 @@ public class UserSignupForm {
 
 스프링은 커맨드 오브젝트를 아래와 같은 순서로 생성한다.
 
-* 인자 없는 생성자 → `public void setter(param)`
+1. 인자 없는 생성자
+2. `public void setter(param)`
 
-스프링은 많은 데이터 타입을 지원한다
+많은 데이터 타입을 지원한다
 
-* 아래 내용은 `@RequestParam` 에서도 지원하는 내용이다.
-* String
+* (아래 내용은 `@RequestParam` 에서도 지원하는 내용이다.)
+* (당연히) String
 * 정수형은 setter 메서드의 인자를 정수로 받을 수도 있지만, String으로 받아 직접 파싱할 수도 있다
     * 예외 검출이 필요하거나, 기타 특수한 목적이 있는 경우 고려 가능
+    * 스트링이나 null 넣는 트롤들이 꼭 있다.
+
+```java
+public setSomeInt(String intString) {
+    try {
+        this.someInt = Integer.parseInt(intString);
+    } catch (NumberFormatException e) {
+        this.someInt = 0;
+    }
+}
+```
+
 * boolean 같은 경우에는 문자열 `true`, `false` 를 적절한 불리언 값으로 변환한다
     * `yes` , `no` 등도 변환할 수 있다
 * List<>
@@ -135,6 +149,7 @@ public class UserSignupForm {
 
 * 입력 데이터에서 수정이 필요할 때
     * 금칙어 필터 등 적용 시
+        * 일부 프로퍼티에 XSS 필터를 적용할 때?
 * 특정 데이터에서 유도되는 다른 데이터를 사용하고 싶을 때
     * 사실 Date는 이럴 필요 없이, 바로 변환 가능하다. 어디까지나 예시.
 * 등등등
@@ -312,5 +327,4 @@ public class UserSignupForm {
 }
 ```
 
-* 그냥 옵션을 다 줘봐
-
+* 등등등, 자세한 것은 Spring Validator 라고 검색해보자!
