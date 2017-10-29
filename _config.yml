@@ -7,12 +7,12 @@ name:               "AwayDay"
 
 author:
 #  facebook:         #your-id
-#  twitter:          append_node
-#  github:           AwayDay
+  twitter:          append_node
+  github:           AwayDay
 #  linkedin:         #your-id
 #  medium:           #your-id
 #  tumblr:           #your-id
-#  email:            kurosawadia@gmail.com
+  email:            kurosawadia@gmail.com
 
 copyright:
   year:             2017
