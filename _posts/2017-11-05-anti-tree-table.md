@@ -234,9 +234,9 @@ __정말 우아하다.__
 
 ```sql
 SELECT o.*
-FROM obj_table AS o
-JOIN clo_table AS c ON o.id = c.descendant
-WHERE o.id = 6;
+FROM clo_table AS c
+JOIN obj_table AS o ON o.id = c.ancestor
+WHERE c.descendant = 6;
 ```
 
 * `#4` 에 새로운 단말 노드를 추가하는 방법은 아래와 같다.
