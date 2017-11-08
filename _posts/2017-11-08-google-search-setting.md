@@ -22,7 +22,7 @@ jekyll + github.io 조합으로 블로그를 생성하면 구글 검색에 잡�
 
 ## 사이트맵 추가
 
-1. `{{ site.url }}` 옵션을 사용하기 때문에, `_config.yml` 파일의 `url` 속성이 정의되어 있어야 한다.
+1. `site.url` 옵션을 사용하기 때문에, `_config.yml` 파일의 `url` 속성이 정의되어 있어야 한다.
 
 ```yml
 # 이런 식으로
@@ -35,7 +35,7 @@ url: "https://awayday.github.io"
 
 <script src="https://gist.github.com/AwayDay/447442f145a3f3e070dbbe98f13627d6.js"></script>
 
-* ...레이아웃이 적용되어 그렇다. 이런 경우에는 파일 내용을 아래와 같이 수정하자.
+1. ...레이아웃이 적용되어 그렇다. 이런 경우에는 파일 내용을 아래와 같이 수정하자.
     * `layout: none` 설정이 추가된 것을 확인 가능하다.
 
 <script src="https://gist.github.com/AwayDay/bc8a128b4ea61e6357217db28affcd1f.js"></script>
