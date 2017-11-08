@@ -17,7 +17,7 @@ jekyll + github.io 조합으로 블로그를 생성하면 구글 검색에 잡�
 
 1. [서치 콘솔](https://www.google.com/webmasters/tools/home?hl=ko) 접근.
 1. __속성 추가__ 버튼을 눌러 블로그 주소를 추가.
-1. 진실로 자신의 블로그(웹 사이트)가 맞다는 것을 입증하기 위해 구글에서 제공하는 파일(`file-name.html`)을 내려받아 블로그 프로젝트 폴더 __최상위__ 에 추가하고 커밋 + 푸시.
+1. 진실로 자신의 블로그(웹 사이트)가 맞다는 것을 입증하기 위해 구글에서 제공하는 파일`file-name.html`을 내려받아 블로그 프로젝트 폴더 __최상위__ 에 추가하고 커밋 + 푸시.
 1. `/{file-name.html}` 페이지에 정상적으로 접근이 된다면 서치 콘솔로 돌아가 확인.
 
 ## 사이트맵 추가
@@ -41,8 +41,8 @@ url: "https://awayday.github.io"
 <script src="https://gist.github.com/AwayDay/bc8a128b4ea61e6357217db28affcd1f.js"></script>
 
 1. `/sitemap.xml` 페이지가 정상적인 xml 형식으로 표시되는 것을 확인한다.
-1. __Sitemaps__ 메뉴에서 __Sitemap 추가/테스트__ 항목을 사용하여 사이트맵이 올바른 포맷을 가지고 있는지 확인한다.
-1. __제출__
+1. __Sitemaps__ 메뉴에서 __Sitemap 추가/테스트__ 항목을 사용하여 사이트맵이 올바른 포맷을 가지고 있는지 확인한다, 에러가 있으면 수정.
+1. 제출.
 
 ## 그 이후
 
