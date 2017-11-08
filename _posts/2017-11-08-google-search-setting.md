@@ -33,55 +33,12 @@ url: "https://awayday.github.io"
 1. `sitemap.xml` 파일을 프로젝트 폴더 최상위에 추가한다.
 1. 파일 내용은 아래와 같이 하여 커밋 + 푸시 하면 되는데, 몇 몇 테마에서는 `/sitemap.xml` 경로로 접근 시 웬 에러 페이지가 표시된다.
 
-```xml
----
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for post in site.posts %}
-    <url>
-        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endfor %}
-
-    {% for page in site.pages %}
-    {% if page.layout != nil %}
-    {% if page.layout != 'redirect' %}
-    <url>
-        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-</urlset>
-```
+<script src="https://gist.github.com/AwayDay/447442f145a3f3e070dbbe98f13627d6.js"></script>
 
 * ...레이아웃이 적용되어 그렇다. 이런 경우에는 파일 내용을 아래와 같이 수정하자.
     * `layout: none` 설정이 추가된 것을 확인 가능하다.
 
-```xml
----
-layout: none
----
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    {% for post in site.posts %}
-    <url>
-        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endfor %}
-
-    {% for page in site.pages %}
-    {% if page.layout != nil %}
-    {% if page.layout != 'redirect' %}
-    <url>
-        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
-    </url>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-</urlset>
-```
+<script src="https://gist.github.com/AwayDay/bc8a128b4ea61e6357217db28affcd1f.js"></script>
 
 1. `/sitemap.xml` 페이지가 정상적인 xml 형식으로 표시되는 것을 확인한다.
 1. __Sitemaps__ 메뉴에서 __Sitemap 추가/테스트__ 항목을 사용하여 사이트맵이 올바른 포맷을 가지고 있는지 확인한다.
