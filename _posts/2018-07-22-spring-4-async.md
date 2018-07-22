@@ -5,7 +5,7 @@ description: "너는 너의 일을 하거라"
 tags: [java, spring, async]
 ---
 
-# 가장 간단하게는 `Async` 어노테이션
+# 가장 간단하게는 Async 어노테이션
 
 ## 참 쉽죠?
 
