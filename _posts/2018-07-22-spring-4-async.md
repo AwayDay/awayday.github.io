@@ -87,7 +87,7 @@ public void runAsync() {
 ```
 
 # 리턴이 void면 정말 좋은데
-정말 좋은데 살다보면 값을 반환해야 할 일이 반드시 생긴다. 이 때 비동기 작업의 플로우 관리는 `Feature`가 할 수 있다. 스프링은 `Feature`를 입맛에 맞게 수정한 `ListenableFuture`를 기본으로 사용하나, 자바 1.8 이상을 사용할 수 있다면 `CompletableFuture`을 선택할 수도 있다.
+...정말 좋은데 살다보면 값을 반환해야 할 일이 반드시 생긴다. 이 때 비동기 작업의 플로우 관리는 `Feature`가 할 수 있다. 스프링은 `Feature`를 입맛에 맞게 수정한 `ListenableFuture`를 기본으로 사용하나, 자바 1.8 이상을 사용할 수 있다면 `CompletableFuture`을 선택할 수도 있다.
 
 * Spring 5에선 설정에 따라 Mono와 Flux가 이를 대체하게 된다.
 
